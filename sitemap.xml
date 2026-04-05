@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ziri-dev-fr.vercel.app/</loc>
+    <loc>https://ziridev-fr.vercel.app/</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ziri-dev-fr.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ziri-dev.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ziridev-fr.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ziridev.vercel.app/"/>
   </url>
   <url>
-    <loc>https://ziri-dev-fr.vercel.app/thank-you.html</loc>
+    <loc>https://ziridev-fr.vercel.app/thank-you.html</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
