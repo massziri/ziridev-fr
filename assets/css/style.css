@@ -318,6 +318,12 @@ section { padding: 84px 0; }
   font-size: 1.4rem;
   margin-bottom: 16px;
 }
+.card .icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--primary);
+  flex-shrink: 0;
+}
 .card h3 { margin: 0 0 10px; font-size: 1.15rem; }
 .card p { margin: 0; color: var(--muted); }
 .card ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
