@@ -6,8 +6,8 @@ Agence premium de création de sites web et d'applications mobiles. Sites à par
 
 ## Services
 - 🖥️ Landing pages à partir de **150€**
-- 💼 Sites professionnels à partir de **990€**
-- 🛒 E-commerce à partir de **1 200€**
+- 💼 Sites professionnels à partir de **150€**
+- 🛒 E-commerce à partir de **200€**
 - 📱 Applications mobiles à partir de **200€**
 
 ## Contact
