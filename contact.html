@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Ziri Dev | Devis Gratuit Site Web France</title>
+  <meta name="description" content="Contactez Ziri Dev pour un devis gratuit. Création de sites web, e-commerce, applications mobiles à partir de 150€. Réponse sous 24h." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ziridev-fr.vercel.app/contact" />
+  <meta property="og:title" content="Contact Ziri Dev — Devis Gratuit" />
+  <meta property="og:description" content="Discutez de votre projet avec Ziri Dev. Audit gratuit, devis sans engagement, réponse sous 24h." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ziridev-fr.vercel.app/contact" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .contact-hero { background:linear-gradient(135deg,#0f1c31,#1a6b3c); color:#fff; padding:80px 0 60px; text-align:center; }
+    .contact-hero h1 { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:900; margin:0 0 12px; }
+    .contact-hero p { color:rgba(255,255,255,.8); font-size:1.05rem; margin:0; }
+    .contact-badge { display:inline-block; background:rgba(95,207,138,.2); color:#5fcf8a; border:1px solid rgba(95,207,138,.4); border-radius:999px; padding:6px 16px; font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1100px; margin:0 auto; padding:60px 20px 80px; }
+    @media(max-width:768px) { .contact-grid { grid-template-columns:1fr; gap:32px; padding:40px 20px 60px; } }
+    /* FORM */
+    .contact-form-card { background:#fff; border-radius:24px; padding:40px; box-shadow:0 20px 60px rgba(10,20,14,.1); border:1px solid #e2f0e8; }
+    .contact-form-card h2 { font-size:1.5rem; font-weight:900; color:#0a1f12; margin:0 0 8px; }
+    .contact-form-card .sub { color:#64748b; font-size:.95rem; margin:0 0 28px; }
+    .form-group { margin-bottom:18px; }
+    .form-group label { display:block; font-size:.88rem; font-weight:700; color:#374151; margin-bottom:6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width:100%; padding:14px 16px; border:2px solid #e2f0e8; border-radius:12px;
+      font-size:.97rem; background:#fafff8; color:#0a1f12; outline:none;
+      transition:border-color .2s, box-shadow .2s; box-sizing:border-box;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color:#1a6b3c; box-shadow:0 0 0 3px rgba(26,107,60,.12);
+    }
+    .form-group textarea { min-height:130px; resize:vertical; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:540px) { .form-row { grid-template-columns:1fr; } }
+    .form-submit { width:100%; padding:16px; background:linear-gradient(135deg,#1a6b3c,#2d9e5e); color:#fff; border:none; border-radius:14px; font-size:1rem; font-weight:800; cursor:pointer; transition:transform .2s,box-shadow .2s; margin-top:6px; }
+    .form-submit:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(26,107,60,.35); }
+    .form-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+    .form-msg { margin-top:14px; padding:14px; border-radius:12px; font-weight:700; font-size:.92rem; display:none; }
+    .form-msg.success { background:#ecfdf5; color:#166534; display:block; }
+    .form-msg.error { background:#fef2f2; color:#b91c1c; display:block; }
+    .form-privacy { font-size:.78rem; color:#94a3b8; margin-top:10px; text-align:center; }
+    .form-privacy a { color:#1a6b3c; text-decoration:none; font-weight:600; }
+    /* SIDE INFO */
+    .contact-info { display:flex; flex-direction:column; gap:24px; }
+    .contact-info-card { background:#fff; border-radius:20px; padding:28px; border:1px solid #e2f0e8; box-shadow:0 8px 24px rgba(10,20,14,.06); }
+    .contact-info-card .icon { font-size:1.8rem; margin-bottom:12px; }
+    .contact-info-card h3 { font-size:1.05rem; font-weight:800; color:#0a1f12; margin:0 0 8px; }
+    .contact-info-card p { color:#64748b; font-size:.9rem; line-height:1.6; margin:0; }
+    .contact-info-card a { color:#1a6b3c; font-weight:700; text-decoration:none; }
+    .contact-info-card a:hover { text-decoration:underline; }
+    .guarantee-box { background:linear-gradient(135deg,#0f1c31,#1a3a2a); border-radius:20px; padding:28px; color:#fff; }
+    .guarantee-box h3 { font-size:1.05rem; font-weight:800; margin:0 0 16px; }
+    .guarantee-item { display:flex; align-items:flex-start; gap:12px; margin-bottom:12px; }
+    .guarantee-item .gi-icon { font-size:1.1rem; flex-shrink:0; margin-top:2px; }
+    .guarantee-item .gi-text { font-size:.88rem; color:rgba(255,255,255,.85); line-height:1.5; }
+    /* FAQ */
+    .contact-faq { max-width:760px; margin:0 auto; padding:0 20px 80px; }
+    .contact-faq h2 { font-size:1.6rem; font-weight:900; color:#0a1f12; text-align:center; margin:0 0 32px; }
+    .faq-item { background:#fff; border-radius:16px; border:1px solid #e2f0e8; margin-bottom:14px; overflow:hidden; }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; font-size:.97rem; font-weight:700; color:#0a1f12; }
+    .faq-q .faq-icon { font-size:1rem; color:#1a6b3c; flex-shrink:0; transition:transform .3s; }
+    .faq-q[aria-expanded="true"] .faq-icon { transform:rotate(45deg); }
+    .faq-a { display:none; padding:0 24px 20px; color:#475569; font-size:.93rem; line-height:1.7; }
+    .faq-a.open { display:block; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-nav">
+    <a class="brand" href="/" aria-label="Accueil Ziri Dev">
+      <div class="brand-mark"><span>&lt;/&gt;</span></div>
+      <div class="brand-copy">
+        <span class="brand-title">Ziri<em>Dev</em></span>
+        <span class="brand-tag">Sites premium • Design • Croissance</span>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="/#services">Services</a>
+      <a href="/#pricing">Tarifs</a>
+      <a href="#contact-form">Contact</a>
+      <a href="about" class="nav-cta">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<div class="contact-hero">
+  <div class="container">
+    <span class="contact-badge">Réponse sous 24h</span>
+    <h1>Parlons de votre projet</h1>
+    <p>Audit gratuit • Devis sans engagement • Disponible 7j/7</p>
+  </div>
+</div>
+
+<div class="contact-grid" id="contact-form">
+  <!-- FORM -->
+  <div class="contact-form-card">
+    <h2>Demandez votre devis gratuit</h2>
+    <p class="sub">Décrivez votre projet et recevez une réponse personnalisée sous 24h.</p>
+    <form id="zd-contact-form" action="https://formsubmit.co/ajax/admin@novatvhub.com" method="POST">
+      <input type="hidden" name="_subject" value="Nouveau contact — Ziri Dev FR" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="Source" value="Page Contact — ziridev-fr.vercel.app" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-name">Prénom & Nom *</label>
+          <input type="text" id="cf-name" name="Nom" placeholder="Marie Dupont" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email *</label>
+          <input type="email" id="cf-email" name="Email" placeholder="marie@exemple.fr" required autocomplete="email" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-phone">Téléphone</label>
+          <input type="tel" id="cf-phone" name="Téléphone" placeholder="+33 6 12 34 56 78" autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label for="cf-company">Entreprise</label>
+          <input type="text" id="cf-company" name="Entreprise" placeholder="Mon Entreprise SAS" autocomplete="organization" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-service">Service souhaité *</label>
+        <select id="cf-service" name="Service" required>
+          <option value="" disabled selected>Choisir un service…</option>
+          <option value="Landing page (150€+)">Landing page — à partir de 150€</option>
+          <option value="Site web professionnel (150€+)">Site web professionnel — à partir de 150€</option>
+          <option value="Site e-commerce (200€+)">Site e-commerce — à partir de 200€</option>
+          <option value="Refonte de site (150€+)">Refonte de site — à partir de 150€</option>
+          <option value="Design UI/UX (500€+)">Design UI/UX — à partir de 500€</option>
+          <option value="SEO & Performance (300€+)">SEO & Performance — à partir de 300€</option>
+          <option value="Application mobile (200€+)">Application mobile — à partir de 200€</option>
+          <option value="Audit gratuit">Audit web gratuit (sans engagement)</option>
+          <option value="Autre">Autre / Je ne sais pas encore</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-budget">Budget estimé</label>
+        <select id="cf-budget" name="Budget">
+          <option value="" disabled selected>Sélectionner une fourchette…</option>
+          <option value="Moins de 200€">Moins de 200€</option>
+          <option value="200€ – 500€">200€ – 500€</option>
+          <option value="500€ – 1 000€">500€ – 1 000€</option>
+          <option value="1 000€ – 3 000€">1 000€ – 3 000€</option>
+          <option value="Plus de 3 000€">Plus de 3 000€</option>
+          <option value="À définir">À définir ensemble</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cf-message">Décrivez votre projet *</label>
+        <textarea id="cf-message" name="Message" placeholder="Ex: Je cherche à créer un site e-commerce pour vendre mes produits artisanaux. J'ai besoin d'environ 20 produits listés, d'un système de paiement en ligne…" required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit" id="cf-submit">
+        🚀 Envoyer ma demande gratuitement
+      </button>
+      <div class="form-msg" id="cf-msg"></div>
+      <p class="form-privacy">
+        En soumettant ce formulaire, vous acceptez notre 
+        <a href="/privacy-policy">politique de confidentialité</a>. 
+        Vos données ne sont jamais revendues.
+      </p>
+    </form>
+  </div>
+
+  <!-- SIDE INFO -->
+  <div class="contact-info">
+    <div class="contact-info-card">
+      <div class="icon">📧</div>
+      <h3>Email direct</h3>
+      <p>Pour toute question ou demande urgente :<br>
+      <a href="mailto:admin@novatvhub.com">admin@novatvhub.com</a></p>
+    </div>
+
+    <div class="contact-info-card">
+      <div class="icon">⚡</div>
+      <h3>Délai de réponse</h3>
+      <p>Nous répondons <strong>sous 24h</strong> en semaine.<br>
+      Disponibles 7j/7 pour les urgences.</p>
+    </div>
+
+    <div class="contact-info-card">
+      <div class="icon">🌍</div>
+      <h3>Zone de service</h3>
+      <p>France, Belgique, Suisse, Luxembourg et toute l'Europe francophone.<br>
+      Services en ligne — 100% à distance.</p>
+    </div>
+
+    <div class="guarantee-box">
+      <h3>🛡️ Nos engagements</h3>
+      <div class="guarantee-item">
+        <span class="gi-icon">✅</span>
+        <span class="gi-text"><strong>Audit gratuit</strong> — Analyse complète de votre site actuel, sans frais ni engagement</span>
+      </div>
+      <div class="guarantee-item">
+        <span class="gi-icon">✅</span>
+        <span class="gi-text"><strong>Devis transparent</strong> — Prix fixe convenu avant le début, aucune surprise</span>
+      </div>
+      <div class="guarantee-item">
+        <span class="gi-icon">✅</span>
+        <span class="gi-text"><strong>Révisions incluses</strong> — 2 à 3 cycles de modifications dans chaque forfait</span>
+      </div>
+      <div class="guarantee-item">
+        <span class="gi-icon">✅</span>
+        <span class="gi-text"><strong>RGPD conforme</strong> — Vos données protégées, jamais revendues</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="contact-faq">
+  <h2>Questions fréquentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      Combien coûte vraiment un site web ?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">
+      Nos tarifs démarrent à 150€ pour une landing page et 200€ pour un e-commerce. Le prix final dépend de la complexité, du nombre de pages et des fonctionnalités. Chaque devis est personnalisé — nous commençons toujours par comprendre vos besoins avant de chiffrer.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      Combien de temps pour livrer mon site ?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">
+      Une landing page est livrée en 1–2 semaines. Un site vitrine en 2–4 semaines. Un e-commerce en 15 à 60 jours selon l'ampleur. Les délais démarrent dès la réception de vos contenus et de l'acompte.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      Proposez-vous un suivi après la livraison ?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">
+      Oui. Nous offrons 30 jours de support technique gratuit après la livraison finale. Des forfaits de maintenance mensuelle sont ensuite disponibles sur devis.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      Je n'ai pas encore de logo ni de contenus — est-ce un problème ?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">
+      Pas du tout. Nous pouvons vous aider à rédiger les textes, créer un logo simple et sourcer des visuels libres de droits. Ces prestations sont chiffrées séparément lors du devis.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      Mon site sera-t-il bien positionné sur Google ?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">
+      Tous nos sites incluent les bonnes pratiques SEO de base (balises, vitesse, mobile-first, données structurées). Un audit SEO complet et une stratégie de contenu sont proposés en option à partir de 300€.
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p style="text-align:center;color:rgba(255,255,255,.5);font-size:.85rem;padding:40px 0;">
+      © 2026 Ziri Dev — 
+      <a href="/privacy-policy" style="color:#5fcf8a;">Confidentialité</a> · 
+      <a href="/terms" style="color:#5fcf8a;">CGU</a> · 
+      <a href="/contact" style="color:#5fcf8a;">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// Form submission
+document.getElementById('zd-contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('cf-submit');
+  const msg = document.getElementById('cf-msg');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+  msg.className = 'form-msg';
+
+  try {
+    const fd = new FormData(this);
+    const r = await fetch('https://formsubmit.co/ajax/admin@novatvhub.com', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: fd
+    });
+    const d = await r.json().catch(() => ({}));
+    if (r.ok && (d.success === true || d.success === 'true')) {
+      msg.textContent = '✅ Votre demande a bien été envoyée ! Nous vous répondons sous 24h.';
+      msg.className = 'form-msg success';
+      this.reset();
+      btn.textContent = '✅ Message envoyé !';
+    } else throw new Error();
+  } catch (_) {
+    msg.textContent = '❌ Erreur lors de l\'envoi. Contactez-nous directement : admin@novatvhub.com';
+    msg.className = 'form-msg error';
+    btn.disabled = false;
+    btn.textContent = '🚀 Envoyer ma demande gratuitement';
+  }
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    // close all
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  });
+});
+</script>
+</body>
+</html>

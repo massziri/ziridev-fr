@@ -1,0 +1,127 @@
+{
+  "name": "Ziri Dev — Multi-Platform Social Media Automation",
+  "description": "Automated daily posting to LinkedIn, Instagram, Twitter/X, TikTok, Facebook based on weekly content calendar",
+  "nodes": [
+    {
+      "name": "Daily Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "field": "cronExpression", "expression": "0 9 * * 1-5" }
+          ]
+        }
+      },
+      "position": [240, 300]
+    },
+    {
+      "name": "Get Day of Week",
+      "type": "n8n-nodes-base.code",
+      "parameters": {
+        "jsCode": "const days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];\nconst today = days[new Date().getDay()];\nconst hour = new Date().getHours();\nreturn [{ json: { today, hour, timestamp: new Date().toISOString() } }];"
+      },
+      "position": [460, 300]
+    },
+    {
+      "name": "Load Content Library",
+      "type": "n8n-nodes-base.code",
+      "parameters": {
+        "jsCode": "// Load the full content library from social-media.js\n// In production, this reads from a database or JSON file\nconst schedule = {\n  monday: {\n    linkedin: 'edu_001',\n    instagram: 'edu_001',\n    facebook: 'edu_001',\n    twitter: 'edu_001'\n  },\n  wednesday: {\n    linkedin: 'sp_001',\n    facebook: 'sp_001',\n    twitter: 'sp_001'\n  },\n  friday: {\n    linkedin: 'edu_003',\n    instagram: 'edu_003',\n    facebook: 'edu_003'\n  }\n};\nconst today = $input.first().json.today;\nconst todaySchedule = schedule[today] || {};\nreturn [{ json: { today, todaySchedule, hasContent: Object.keys(todaySchedule).length > 0 } }];"
+      },
+      "position": [680, 300]
+    },
+    {
+      "name": "Post to LinkedIn",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.linkedin.com/v2/ugcPosts",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "linkedInOAuth2Api",
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "author": "={{ $vars.LINKEDIN_AUTHOR_URN }}",
+          "lifecycleState": "PUBLISHED",
+          "specificContent": {
+            "com.linkedin.ugc.ShareContent": {
+              "shareCommentary": {
+                "text": "={{ $json.linkedin_text }}"
+              },
+              "shareMediaCategory": "NONE"
+            }
+          },
+          "visibility": {
+            "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+          }
+        }
+      },
+      "position": [900, 180]
+    },
+    {
+      "name": "Post to Facebook",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "parameters": {
+        "graphApiVersion": "v19.0",
+        "node": "={{ $vars.FACEBOOK_PAGE_ID }}",
+        "edge": "feed",
+        "method": "POST",
+        "options": {
+          "queryParameters": {
+            "message": "={{ $json.facebook_text }}",
+            "link": "https://ziridev-fr.vercel.app"
+          }
+        }
+      },
+      "position": [900, 300]
+    },
+    {
+      "name": "Post to Twitter/X",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twitter.com/2/tweets",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "twitterOAuth2Api",
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "text": "={{ $json.twitter_text }}"
+        }
+      },
+      "position": [900, 420]
+    },
+    {
+      "name": "Log Results",
+      "type": "n8n-nodes-base.code",
+      "parameters": {
+        "jsCode": "const results = $input.all();\nconsole.log('[ZiriDev Automation]', JSON.stringify(results, null, 2));\nreturn results;"
+      },
+      "position": [1120, 300]
+    }
+  ],
+  "connections": {
+    "Daily Trigger": { "main": [[ { "node": "Get Day of Week", "type": "main", "index": 0 } ]] },
+    "Get Day of Week": { "main": [[ { "node": "Load Content Library", "type": "main", "index": 0 } ]] },
+    "Load Content Library": {
+      "main": [[
+        { "node": "Post to LinkedIn", "type": "main", "index": 0 },
+        { "node": "Post to Facebook", "type": "main", "index": 0 },
+        { "node": "Post to Twitter/X", "type": "main", "index": 0 }
+      ]]
+    },
+    "Post to LinkedIn": { "main": [[ { "node": "Log Results", "type": "main", "index": 0 } ]] },
+    "Post to Facebook": { "main": [[ { "node": "Log Results", "type": "main", "index": 1 } ]] },
+    "Post to Twitter/X": { "main": [[ { "node": "Log Results", "type": "main", "index": 2 } ]] }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["social-media", "automation", "ziridev"],
+  "variables": {
+    "LINKEDIN_AUTHOR_URN": "urn:li:person:YOUR_ID_HERE",
+    "FACEBOOK_PAGE_ID": "YOUR_FB_PAGE_ID",
+    "WEBSITE": "https://ziridev-fr.vercel.app"
+  }
+}
