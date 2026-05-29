@@ -1,45 +1,24 @@
 export default async function handler(req, res) {
-  // Gérer les en-têtes CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
   if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' });
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    const payload = req.body;
+    const body = req.body;
     
-    // Préparer les données pour FormSubmit
-    const formSubmitData = {
-      ...payload,
-      _subject: `Nouvelle demande Ziri Dev FR - ${payload.fname} ${payload.lname}`,
-      _captcha: "false",
-      _template: "table"
-    };
+    // Ici, vous pouvez ajouter la logique pour envoyer un email ou enregistrer dans une DB
+    // Pour l'instant, nous simulons une réussite
+    console.log('Form submission received:', body);
 
-    const response = await fetch('https://formsubmit.co/ajax/admin@novatvhub.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(formSubmitData)
+    return res.status(200).json({
+      success: true,
+      message: 'Formulaire reçu avec succès !'
     });
-
-    const result = await response.json();
-    return res.status(response.status).json(result);
-
   } catch (error) {
-    console.error('API Submit Error:', error);
-    return res.status(500).json({ 
-      success: false, 
-      message: 'Une erreur interne est survenue lors de l\'envoi.' 
+    console.error('Submission error:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Une erreur est survenue lors de l\'envoi.'
     });
   }
 }
