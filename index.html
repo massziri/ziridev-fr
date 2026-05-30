@@ -157,7 +157,7 @@
         "@id": "https://ziridev-fr.vercel.app/#ecommerce-service",
         "serviceType": "Développement E-commerce",
         "name": "Création de Site E-commerce",
-        "description": "Boutiques e-commerce complètes à partir de 400€. Intégration paiement, gestion produits, SEO inclus.",
+        "description": "Boutiques e-commerce complètes à partir de 700€. Intégration paiement, gestion produits, SEO inclus.",
         "provider": { "@id": "https://ziridev-fr.vercel.app/#organization" },
         "offers": {
           "@type": "Offer",
@@ -187,7 +187,7 @@
             "name": "Combien coûte la création d'un site web chez Ziri Dev ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nos tarifs commencent à 300€ pour les landing pages et sites professionnels. L'e-commerce démarre à 400€ et les applications mobiles à 400€. Prix fixes et transparents, sans frais cachés."
+              "text": "Nos tarifs commencent à 300€ pour les landing pages et sites professionnels. L'e-commerce démarre à 700€ et les applications mobiles à 400€. Prix fixes et transparents, sans frais cachés."
             }
           },
           {
@@ -284,14 +284,14 @@
     #lead-popup .lp-close { position:absolute; top:10px; right:13px; background:none; border:none; cursor:pointer; font-size:1.1rem; color:#94a3b8; }
   </style>
 </head>
-<body>
+<spanody class="label-text">
 
 <div id="scroll-bar"></div>
 
 <!-- Bannière d'annonce sticky -->
 <div id="sticky-banner">
-  <span>🚀 <strong>Audit de site gratuit</strong> — Places limitées ce mois-ci. <a href="#contact-anchor">Réservez la vôtre →</a></span>
-  <button class="close-banner" aria-label="Fermer la bannière" onclick="this.parentElement.remove()">×</button>
+  <span>🚀 <span class="label-text">Audit de site gratuit</span> — Places limitées ce mois-ci. <a href="#contact-anchor">Réservez la vôtre →</a></span>
+  <spanutton class="close-banner label-text" aria-label="Fermer la bannière" onclick="this.parentElement.remove()">×</button>
 </div>
 
 <!-- Ticker preuve sociale -->
@@ -324,11 +324,11 @@
       <a href="#results">Résultats</a>
       <a href="#pricing">Tarifs</a>
       <a href="about">À propos</a>
-      <a href="contact">Contact</a>
+      <a href="#contact-anchor">Contact</a>
     </nav>
     <div class="nav-actions">
       <a class="btn btn-primary" href="#contact-anchor">Audit gratuit</a>
-      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-toggle>
+      <spanutton class="menu-toggle label-text" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-toggle>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
@@ -358,10 +358,10 @@
         <h2>Ce qui distingue notre travail</h2>
         <p>Nous nous concentrons sur les détails qui élèvent la perception, améliorent l'utilisabilité et créent de meilleurs résultats commerciaux.</p>
         <div class="mini-grid">
-          <div class="mini-card"><strong>Positionnement</strong><span>Messages et présentation plus forts pour une image de marque percutante</span></div>
-          <div class="mini-card"><strong>Exécution</strong><span>Développement propre, responsive et orienté performance</span></div>
-          <div class="mini-card"><strong>Conversion</strong><span>Parcours utilisateurs plus clairs pour guider vers la bonne action</span></div>
-          <div class="mini-card"><strong>Pérennité</strong><span>Une base digitale conçue pour évoluer avec votre entreprise</span></div>
+          <div class="mini-card"><span class="label-text">Positionnement</span><span>Messages et présentation plus forts pour une image de marque percutante</span></div>
+          <div class="mini-card"><span class="label-text">Exécution</span><span>Développement propre, responsive et orienté performance</span></div>
+          <div class="mini-card"><span class="label-text">Conversion</span><span>Parcours utilisateurs plus clairs pour guider vers la bonne action</span></div>
+          <div class="mini-card"><span class="label-text">Pérennité</span><span>Une base digitale conçue pour évoluer avec votre entreprise</span></div>
         </div>
       </aside>
     </div>
@@ -382,10 +382,10 @@
   <!-- STATISTIQUES -->
   <section class="stats">
     <div class="container stats-grid">
-      <div class="stat"><strong data-count="120">0</strong><span>Projets livrés</span></div>
-      <div class="stat"><strong data-count="98">0</strong><span>% Clients satisfaits</span></div>
-      <div class="stat"><strong data-count="4">0</strong><span>× Taux de conversion moyen</span></div>
-      <div class="stat"><strong data-count="48">0</strong><span>H Délai de première livraison</span></div>
+      <div class="stat"><span data-count="120" class="label-text">0</span><span>Projets livrés</span></div>
+      <div class="stat"><span data-count="98" class="label-text">0</span><span>% Clients satisfaits</span></div>
+      <div class="stat"><span data-count="4" class="label-text">0</span><span>× Taux de conversion moyen</span></div>
+      <div class="stat"><span data-count="48" class="label-text">0</span><span>H Délai de première livraison</span></div>
     </div>
   </section>
 
@@ -449,12 +449,12 @@
         <p>Notre objectif est de créer des sites qui font un vrai travail commercial : renforcer la perception, simplifier la prise de décision et créer des conversations plus précieuses avec la bonne audience.</p>
       </div>
       <div class="check-grid">
-        <div class="check-item"><span>✓</span><div><strong>Une image de marque plus forte</strong><p>Une présence digitale plus premium qui reflète la qualité de votre entreprise et de vos services.</p></div></div>
-        <div class="check-item"><span>✓</span><div><strong>Des parcours utilisateurs plus convaincants</strong><p>Des appels à l'action plus percutants et une structure de page plus claire qui guident les visiteurs avec moins de friction.</p></div></div>
-        <div class="check-item"><span>✓</span><div><strong>Des demandes de meilleure qualité</strong><p>Un meilleur positionnement et une meilleure présentation qui attirent les visiteurs les plus alignés avec votre offre.</p></div></div>
-        <div class="check-item"><span>✓</span><div><strong>Une meilleure crédibilité mobile</strong><p>Une expérience soignée et intuitive sur téléphones, tablettes et ordinateurs de bureau.</p></div></div>
-        <div class="check-item"><span>✓</span><div><strong>Des performances qui soutiennent la croissance</strong><p>Une implémentation plus propre et une livraison plus rapide qui améliorent l'engagement et réduisent l'abandon.</p></div></div>
-        <div class="check-item"><span>✓</span><div><strong>Un site prêt à évoluer</strong><p>Une base digitale solide qui peut supporter de futurs contenus, campagnes et l'expansion de l'entreprise.</p></div></div>
+        <div class="check-item"><span>✓</span><div><span class="label-text">Une image de marque plus forte</span><p>Une présence digitale plus premium qui reflète la qualité de votre entreprise et de vos services.</p></div></div>
+        <div class="check-item"><span>✓</span><div><span class="label-text">Des parcours utilisateurs plus convaincants</span><p>Des appels à l'action plus percutants et une structure de page plus claire qui guident les visiteurs avec moins de friction.</p></div></div>
+        <div class="check-item"><span>✓</span><div><span class="label-text">Des demandes de meilleure qualité</span><p>Un meilleur positionnement et une meilleure présentation qui attirent les visiteurs les plus alignés avec votre offre.</p></div></div>
+        <div class="check-item"><span>✓</span><div><span class="label-text">Une meilleure crédibilité mobile</span><p>Une expérience soignée et intuitive sur téléphones, tablettes et ordinateurs de bureau.</p></div></div>
+        <div class="check-item"><span>✓</span><div><span class="label-text">Des performances qui soutiennent la croissance</span><p>Une implémentation plus propre et une livraison plus rapide qui améliorent l'engagement et réduisent l'abandon.</p></div></div>
+        <div class="check-item"><span>✓</span><div><span class="label-text">Un site prêt à évoluer</span><p>Une base digitale solide qui peut supporter de futurs contenus, campagnes et l'expansion de l'entreprise.</p></div></div>
       </div>
     </div>
   </section>
@@ -497,7 +497,7 @@
         <article class="card" style="border:2px solid #e2e8f0;">
           <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12M12 12C12 12 7 9 5 4c4 0 7 2 7 8zM12 12c0 0 5-3 7-8-4 0-7 2-7 8z"/></svg></div>
           <h3>Starter</h3>
-          <p style="font-size:2rem;font-weight:900;color:#2d9e5e;margin:10px 0;">À partir de 300€</p>
+          <p style="font-size:2rem;font-weight:500;color:#2d9e5e;margin:10px 0;">À partir de 300€</p>
           <p>Landing page propre ou site vitrine pour petites entreprises. Livraison rapide.</p>
           <ul style="text-align:left;margin:14px 0 18px;padding-left:20px;font-size:.9rem;color:#475569;line-height:1.9;">
             <li>Jusqu'à 5 pages</li>
@@ -509,10 +509,10 @@
           <a class="btn btn-primary" href="#contact-anchor" style="display:block;text-align:center;">Démarrer →</a>
         </article>
         <article class="card" style="border:2px solid #2d9e5e;position:relative;">
-          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#2d9e5e;color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px;">LE PLUS POPULAIRE</div>
+          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#2d9e5e;color:#fff;font-size:.75rem;font-weight:500;padding:4px 14px;border-radius:20px;">LE PLUS POPULAIRE</div>
           <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
           <h3>Croissance</h3>
-          <p style="font-size:2rem;font-weight:900;color:#2d9e5e;margin:10px 0;">À partir de 800€</p>
+          <p style="font-size:2rem;font-weight:500;color:#2d9e5e;margin:10px 0;">À partir de 800€</p>
           <p>Site professionnel complet pour la conversion, la confiance et la visibilité à long terme.</p>
           <ul style="text-align:left;margin:14px 0 18px;padding-left:20px;font-size:.9rem;color:#475569;line-height:1.9;">
             <li>Jusqu'à 12 pages</li>
@@ -527,7 +527,7 @@
         <article class="card" style="border:2px solid #e2e8f0;">
           <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <h3>Premium</h3>
-          <p style="font-size:2rem;font-weight:900;color:#2d9e5e;margin:10px 0;">Devis sur mesure</p>
+          <p style="font-size:2rem;font-weight:500;color:#2d9e5e;margin:10px 0;">Devis sur mesure</p>
           <p>Transformation digitale complète : site + app + automation + stratégie SEO.</p>
           <ul style="text-align:left;margin:14px 0 18px;padding-left:20px;font-size:.9rem;color:#475569;line-height:1.9;">
             <li>Pages illimitées</li>
@@ -545,7 +545,7 @@
 
   <!-- BARRE D'URGENCE -->
   <div class="urgency-bar">
-    ⚠️ Disponibilité limitée — Seulement <strong>3 nouvelles places</strong> disponibles ce mois. <a href="#contact-anchor" style="color:#92400e;font-weight:700;">Réservez votre place →</a>
+    ⚠️ Disponibilité limitée — Seulement <span class="label-text">3 nouvelles places</span> disponibles ce mois. <a href="#contact-anchor" style="color:#92400e;font-weight:700;">Réservez votre place →</a>
   </div>
 
   <!-- POUR QUI -->
@@ -575,7 +575,7 @@
     <div id="brevo-form-container">
       <form class="lead-form" id="auditLeadForm" onsubmit="submitLeadForm(event)">
         <input type="email" id="leadEmail" placeholder="Votre email professionnel…" required autocomplete="email" />
-        <button type="submit">Envoyer mon audit gratuit →</button>
+        <spanutton type="submit" class="label-text">Envoyer mon audit gratuit →</button>
       </form>
       <p class="lead-note">🔒 Pas de spam. Nous respectons votre vie privée. Désabonnement à tout moment. Conforme RGPD.</p>
     </div>
@@ -589,9 +589,9 @@
         <h3>Réserver une consultation stratégique</h3>
         <p>Si vous voulez un site qui soit plus premium, plus performant et qui génère de meilleures opportunités commerciales, discutons de votre projet.</p>
         <div class="info-list">
-          <div class="item"><div class="info-dot">🎯</div><div><strong>Approche commerciale</strong>Nous alignons design et développement avec la façon dont votre entreprise grandit vraiment.</div></div>
-          <div class="item"><div class="info-dot">🔵</div><div><strong>Standards de design premium</strong>Nous créons des interfaces épurées et élégantes qui rendent votre entreprise plus établie et crédible.</div></div>
-          <div class="item"><div class="info-dot">🚀</div><div><strong>Conçu pour évoluer</strong>Nous livrons des sites qui peuvent supporter de nouvelles pages, campagnes, contenus et l'évolution de votre activité.</div></div>
+          <div class="item"><div class="info-dot">🎯</div><div><span class="label-text">Approche commerciale</span>Nous alignons design et développement avec la façon dont votre entreprise grandit vraiment.</div></div>
+          <div class="item"><div class="info-dot">🔵</div><div><span class="label-text">Standards de design premium</span>Nous créons des interfaces épurées et élégantes qui rendent votre entreprise plus établie et crédible.</div></div>
+          <div class="item"><div class="info-dot">🚀</div><div><span class="label-text">Conçu pour évoluer</span>Nous livrons des sites qui peuvent supporter de nouvelles pages, campagnes, contenus et l'évolution de votre activité.</div></div>
         </div>
         <div class="badge-row">
           <span>Refonte premium</span>
@@ -671,7 +671,7 @@
               <textarea id="message" name="message" placeholder="Parlez-nous de vos objectifs, votre positionnement, votre délai et le type de résultat que vous souhaitez que votre site génère."></textarea>
             </div>
             <div class="field field-full">
-              <button class="btn btn-primary" type="submit">Réserver ma consultation</button>
+              <spanutton class="btn btn-primary label-text" type="submit">Réserver ma consultation</button>
             </div>
           </div>
         </form>
@@ -692,17 +692,17 @@
         <article class="card quote">
           <div style="color:#f59e0b;font-size:1.1rem;margin-bottom:8px;">★★★★★</div>
           <p>Ziri Dev a donné à notre entreprise une présence digitale bien plus premium. Le nouveau site reflète le standard que nous voulons donner à nos clients.</p>
-          <strong>Directeur, cabinet de conseil — Paris</strong>
+          <span class="label-text">Directeur, cabinet de conseil — Paris</span>
         </article>
         <article class="card quote">
           <div style="color:#f59e0b;font-size:1.1rem;margin-bottom:8px;">★★★★★</div>
           <p>La structure est plus claire, la marque est plus forte et la qualité des demandes entrantes s'est nettement améliorée.</p>
-          <strong>Fondateur, entreprise en croissance — Lyon</strong>
+          <span class="label-text">Fondateur, entreprise en croissance — Lyon</span>
         </article>
         <article class="card quote">
           <div style="color:#f59e0b;font-size:1.1rem;margin-bottom:8px;">★★★★★</div>
           <p>Nous voulions un site plus percutant et plus performant. Le résultat est bien plus confiant et commercialement efficace.</p>
-          <strong>Responsable marketing, entreprise établie — Bordeaux</strong>
+          <span class="label-text">Responsable marketing, entreprise établie — Bordeaux</span>
         </article>
       </div>
     </div>
@@ -728,7 +728,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <strong>Ziri Dev</strong><br />
+      <span class="label-text">Ziri Dev</span><spanr / class="label-text">
       Design web premium, développement d'applications mobiles et expériences digitales pour les marques qui veulent un positionnement plus fort.
       <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;">
         <a href="https://ziridev.vercel.app" style="color:#a5f3cc;font-size:.83rem;text-decoration:underline;">🇬🇧 English version</a>
@@ -738,7 +738,7 @@
       <a href="#services">Services</a>
       <a href="#pricing">Tarifs</a>
       <a href="about">À propos</a>
-      <a href="contact">Contact & Devis</a>
+      <a href="#contact-anchor">Contact & Devis</a>
       <a href="privacy-policy">Confidentialité</a>
       <a href="terms">CGU</a>
     </div>
@@ -755,10 +755,10 @@
 <!-- POPUP EXIT INTENT -->
 <div id="exit-overlay" role="dialog" aria-modal="true" aria-label="Offre spéciale">
   <div id="exit-box">
-    <button id="exit-close" aria-label="Fermer">×</button>
+    <spanutton id="exit-close" aria-label="Fermer" class="label-text">×</button>
     <div style="font-size:2.5rem;margin-bottom:8px;">🎁</div>
     <h2>Attendez ! Avant de partir…</h2>
-    <p>Obtenez un <strong>audit personnalisé gratuit de votre site</strong> — nous analysons votre site et vous envoyons un rapport avec des améliorations spécifiques pour le design, la vitesse et la conversion.</p>
+    <p>Obtenez un <span class="label-text">audit personnalisé gratuit de votre site</span> — nous analysons votre site et vous envoyons un rapport avec des améliorations spécifiques pour le design, la vitesse et la conversion.</p>
     <div class="exit-btns">
       <a href="#contact-anchor" class="exit-yes" onclick="document.getElementById('exit-overlay').classList.remove('active')">Oui, je veux mon audit gratuit</a>
       <span class="exit-no" onclick="document.getElementById('exit-overlay').classList.remove('active')" role="button" tabindex="0">Non merci</span>
@@ -773,12 +773,12 @@
 
 <!-- POPUP LEAD FORM (apparaît après 30s) -->
 <div id="lead-popup">
-  <button class="lp-close" aria-label="Fermer" onclick="document.getElementById('lead-popup').classList.remove('active')">×</button>
+  <spanutton class="lp-close label-text" aria-label="Fermer" onclick="document.getElementById('lead-popup').classList.remove('active')">×</button>
   <h4>💡 Conseils web gratuits pour votre entreprise</h4>
   <p>Recevez notre guide gratuit : <em>« 5 erreurs qui coûtent des leads à votre site »</em></p>
   <form onsubmit="submitPopupForm(event)">
     <input type="email" id="popupEmail" placeholder="Votre adresse email" required />
-    <button type="submit" class="lp-btn">Envoyer le guide gratuit →</button>
+    <spanutton type="submit" class="lp-btn label-text">Envoyer le guide gratuit →</button>
   </form>
 </div>
 

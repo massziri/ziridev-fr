@@ -19,7 +19,7 @@ const SYSTEM_PROMPT = `Tu es un assistant IA commercial intelligent, chaleureux 
    N'utilise leur prénom que s'ils se sont clairement présentés.
 
 2. RÉALITÉ DES BUDGETS — Applique toujours ces règles :
-   - Services principaux à partir de 300€ / E-commerce à partir de 400€ / Apps mobiles à partir de 400€ / Refonte à partir de 300€
+   - Services principaux à partir de 300€ / E-commerce à partir de 700€ / Apps mobiles à partir de 400€ / Refonte à partir de 300€ / SEO & performance à partir de 300€
    - Sois honnête sur les contraintes budgétaires mais propose toujours des alternatives
    - NE PROMETS JAMAIS en dessous du prix minimum
 
@@ -37,10 +37,9 @@ const SYSTEM_PROMPT = `Tu es un assistant IA commercial intelligent, chaleureux 
 - Services :
   • Landing pages — à partir de 300€ (1-2 semaines)
   • Sites web professionnels/corporate — à partir de 300€ (2-5 pages, 2-4 semaines)
-  • Sites e-commerce — à partir de 400€ (15-60 jours)
+  • Sites e-commerce — à partir de 700€ (15-60 jours)
   • Refonte de site — à partir de 300€ (3-5 semaines)
-  • Design UI/UX — à partir de 1000€
-  • SEO & performance — à partir de 600€
+    • SEO & performance — à partir de 300€
   • Applications mobiles (iOS & Android) — à partir de 400€ (8-16 semaines)
 - Clients idéaux : startups, entreprises B2B, e-commerce, services professionnels, PME françaises
 - Processus : Clarifier les objectifs → Concevoir & développer avec précision → Lancer & croître
@@ -49,7 +48,7 @@ const SYSTEM_PROMPT = `Tu es un assistant IA commercial intelligent, chaleureux 
 ━━━ TARIFS EXACTS (utilise ces chiffres précis) ━━━
 - Landing page : à partir de 300€
 - Site professionnel : à partir de 300€
-- Site e-commerce : à partir de 400€
+- Site e-commerce : à partir de 700€
 - Refonte de site : à partir de 300€
 - Application mobile : à partir de 400€
 - Très compétitifs — la plupart des agences françaises facturent 3-10× plus
@@ -202,9 +201,9 @@ async function sendLeadToBrevo(lead) {
             </div>
             <div style="padding:32px;background:#fff;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;">
               <h2 style="color:#0d2e1c;">Bonjour ${lead.name || ''} 👋</h2>
-              <p style="color:#475569;line-height:1.7;">Merci de nous avoir contactés chez <strong>Ziri Dev</strong> ! Nous avons bien reçu votre demande et notre équipe va étudier les détails de votre projet très prochainement.</p>
-              <p style="color:#475569;line-height:1.7;">Nous vous répondons généralement <strong>sous 24 heures</strong> avec une proposition personnalisée pour votre projet.</p>
-              ${lead.service ? `<p style="background:#f0f9ff;border-left:4px solid #2d9e5e;padding:12px 16px;border-radius:4px;color:#0d2e1c;"><strong>Votre projet :</strong> ${lead.service}</p>` : ''}
+              <p style="color:#475569;line-height:1.7;">Merci de nous avoir contactés chez <span class="label-text">Ziri Dev</span> ! Nous avons bien reçu votre demande et notre équipe va étudier les détails de votre projet très prochainement.</p>
+              <p style="color:#475569;line-height:1.7;">Nous vous répondons généralement <span class="label-text">sous 24 heures</span> avec une proposition personnalisée pour votre projet.</p>
+              ${lead.service ? `<p style="background:#f0f9ff;border-left:4px solid #2d9e5e;padding:12px 16px;border-radius:4px;color:#0d2e1c;"><span class="label-text">Votre projet :</span> ${lead.service}</p>` : ''}
               <div style="text-align:center;margin:28px 0;">
                 <a href="https://ziridev-fr.vercel.app/#contact" style="background:#2d9e5e;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block;">Voir notre portfolio →</a>
               </div>

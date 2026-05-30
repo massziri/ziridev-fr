@@ -146,10 +146,10 @@
     overlay.setAttribute('aria-label', 'Offre spéciale avant de partir');
     overlay.innerHTML = `
       <div class="nd-exit-box">
-        <button class="nd-exit-close" aria-label="Fermer">&times;</button>
+        <spanutton class="nd-exit-close label-text" aria-label="Fermer">&times;</button>
         <div class="nd-exit-icon">⚡</div>
         <h2 class="nd-exit-title">Attendez — avant de partir !</h2>
-        <p class="nd-exit-sub">Obtenez un <strong>audit gratuit de votre site web</strong> en 24h<br>+ une consultation stratégique offerte.</p>
+        <p class="nd-exit-sub">Obtenez un <span class="label-text">audit gratuit de votre site web</span> en 24h<spanr class="label-text">+ une consultation stratégique offerte.</p>
         <div class="nd-exit-badges">
           <span>✓ Sans engagement</span>
           <span>✓ Réponse en 24h</span>
@@ -157,7 +157,7 @@
         </div>
         <form class="nd-exit-form" id="nd-exit-form">
           <input type="email" name="email" placeholder="votre@email.fr" required autocomplete="email" />
-          <button type="submit" class="nd-exit-btn">Recevoir mon audit gratuit →</button>
+          <spanutton type="submit" class="nd-exit-btn label-text">Recevoir mon audit gratuit →</button>
         </form>
         <div class="nd-exit-msg" id="nd-exit-msg" hidden></div>
         <p class="nd-exit-dismiss">Non merci, je n'ai pas besoin d'un meilleur site.</p>
@@ -234,16 +234,16 @@
      MODULE 2 — SOCIAL PROOF TICKER (notifications de visites)
   ──────────────────────────────────────────────────────────────── */
   const socialProofNotifs = [
-    { icon: '🇫🇷', msg: '<strong>Marie D.</strong> (Lyon) vient de demander un devis pour un site e-commerce', time: 'Il y a 2 min' },
-    { icon: '🇫🇷', msg: '<strong>Pierre M.</strong> (Paris) a réservé une consultation stratégique', time: 'Il y a 5 min' },
-    { icon: '🇫🇷', msg: '<strong>Sophie L.</strong> (Marseille) a lancé la refonte de son site', time: 'Il y a 8 min' },
-    { icon: '🇧🇪', msg: '<strong>Julien K.</strong> (Bruxelles) a démarré un projet application mobile', time: 'Il y a 12 min' },
-    { icon: '🇫🇷', msg: '<strong>Camille R.</strong> (Bordeaux) a reçu son audit web gratuit', time: 'Il y a 15 min' },
-    { icon: '🇨🇭', msg: '<strong>Thomas B.</strong> (Genève) consulte nos offres premium', time: 'Il y a 18 min' },
-    { icon: '🇫🇷', msg: '<strong>Isabelle V.</strong> (Toulouse) a lancé sa landing page', time: 'Il y a 21 min' },
-    { icon: '🇫🇷', msg: '<strong>Marc F.</strong> (Nantes) a commandé un site business', time: 'Il y a 24 min' },
-    { icon: '🇫🇷', msg: '<strong>Laure P.</strong> (Lille) a demandé un audit SEO', time: 'Il y a 28 min' },
-    { icon: '🇫🇷', msg: '<strong>Antoine S.</strong> (Rennes) a signé pour une app mobile', time: 'Il y a 33 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Marie D.</span> (Lyon) vient de demander un devis pour un site e-commerce', time: 'Il y a 2 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Pierre M.</span> (Paris) a réservé une consultation stratégique', time: 'Il y a 5 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Sophie L.</span> (Marseille) a lancé la refonte de son site', time: 'Il y a 8 min' },
+    { icon: '🇧🇪', msg: '<span class="label-text">Julien K.</span> (Bruxelles) a démarré un projet application mobile', time: 'Il y a 12 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Camille R.</span> (Bordeaux) a reçu son audit web gratuit', time: 'Il y a 15 min' },
+    { icon: '🇨🇭', msg: '<span class="label-text">Thomas B.</span> (Genève) consulte nos offres premium', time: 'Il y a 18 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Isabelle V.</span> (Toulouse) a lancé sa landing page', time: 'Il y a 21 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Marc F.</span> (Nantes) a commandé un site business', time: 'Il y a 24 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Laure P.</span> (Lille) a demandé un audit SEO', time: 'Il y a 28 min' },
+    { icon: '🇫🇷', msg: '<span class="label-text">Antoine S.</span> (Rennes) a signé pour une app mobile', time: 'Il y a 33 min' },
   ];
 
   let notifIndex = 0;
@@ -281,7 +281,7 @@
           <p class="nd-notif-text">${n.msg}</p>
           <p class="nd-notif-time">🕐 ${n.time}</p>
         </div>
-        <button class="nd-notif-close" aria-label="Fermer">&times;</button>
+        <spanutton class="nd-notif-close label-text" aria-label="Fermer">&times;</button>
       </div>
     `;
     notifEl.querySelector('.nd-notif-close').addEventListener('click', () => {
@@ -315,7 +315,7 @@
     grid.innerHTML = statsData.map((s, i) => `
       <div class="stat nd-stat" data-value="${s.value}" data-suffix="${s.suffix}" data-prefix="${s.prefix}" style="animation-delay:${i * 0.15}s">
         <div class="nd-stat-icon">${s.icon}</div>
-        <strong class="nd-stat-num">${s.prefix}0${s.suffix}</strong>
+        <span class="nd-stat-num label-text">${s.prefix}0${s.suffix}</span>
         <span>${s.text}</span>
       </div>
     `).join('');
@@ -367,11 +367,11 @@
     bar.innerHTML = `
       <div class="nd-sticky-inner">
         <span class="nd-sticky-text">
-          <strong>🎯 Audit web gratuit offert</strong> — Recevez un rapport complet de votre site en 24h
+          <span class="label-text">🎯 Audit web gratuit offert</span> — Recevez un rapport complet de votre site en 24h
         </span>
         <div class="nd-sticky-actions">
           <a href="#contactForm" class="nd-sticky-btn">Demander maintenant →</a>
-          <button class="nd-sticky-dismiss" aria-label="Fermer">&times;</button>
+          <spanutton class="nd-sticky-dismiss label-text" aria-label="Fermer">&times;</button>
         </div>
       </div>
     `;
@@ -423,7 +423,7 @@
     const banner = document.createElement('div');
     banner.className = 'nd-urgency-banner';
     banner.innerHTML = `
-      🔥 Offre de lancement — <strong>${CONFIG.urgencySlots} places disponibles ce mois-ci</strong>
+      🔥 Offre de lancement — <span class="label-text">${CONFIG.urgencySlots} places disponibles ce mois-ci</span>
       · Audit web offert · Expire dans <span id="nd-urgency-timer">${days}j ${hrs}h</span>
     `;
     hero.insertAdjacentElement('beforebegin', banner);
@@ -486,15 +486,15 @@
     overlay.id = 'nd-hot-overlay';
     overlay.innerHTML = `
       <div class="nd-hot-box">
-        <button class="nd-hot-close" aria-label="Fermer">&times;</button>
+        <spanutton class="nd-hot-close label-text" aria-label="Fermer">&times;</button>
         <div class="nd-hot-badge">🔥 Vous semblez intéressé</div>
         <h2 class="nd-hot-title">Discutons de votre projet !</h2>
-        <p class="nd-hot-sub">Notre équipe peut vous rappeler sous <strong>24h</strong> pour une consultation gratuite.</p>
+        <p class="nd-hot-sub">Notre équipe peut vous rappeler sous <span class="label-text">24h</span> pour une consultation gratuite.</p>
         <form id="nd-hot-form" class="nd-hot-form">
           <input type="text" name="name" placeholder="Votre prénom" required />
           <input type="tel" name="phone" placeholder="Votre téléphone (+33...)" />
           <input type="email" name="email" placeholder="Votre email" required />
-          <button type="submit" class="nd-hot-btn">📞 Être rappelé gratuitement</button>
+          <spanutton type="submit" class="nd-hot-btn label-text">📞 Être rappelé gratuitement</button>
         </form>
         <div class="nd-hot-msg" id="nd-hot-msg" hidden></div>
       </div>
@@ -566,12 +566,12 @@
     badges.className = 'nd-trust-strip';
     badges.innerHTML = `
       <div class="nd-trust-inner">
-        <div class="nd-trust-item"><span>🔒</span><strong>Paiement 100% sécurisé</strong></div>
-        <div class="nd-trust-item"><span>✅</span><strong>Satisfait ou remboursé</strong></div>
-        <div class="nd-trust-item"><span>⚡</span><strong>Livraison en 2 semaines</strong></div>
-        <div class="nd-trust-item"><span>🛡️</span><strong>Conformité RGPD garantie</strong></div>
-        <div class="nd-trust-item"><span>🤝</span><strong>Support inclus 30 jours</strong></div>
-        <div class="nd-trust-item"><span>🌍</span><strong>Clients dans 8 pays</strong></div>
+        <div class="nd-trust-item"><span>🔒</span><span class="label-text">Paiement 100% sécurisé</span></div>
+        <div class="nd-trust-item"><span>✅</span><span class="label-text">Satisfait ou remboursé</span></div>
+        <div class="nd-trust-item"><span>⚡</span><span class="label-text">Livraison en 2 semaines</span></div>
+        <div class="nd-trust-item"><span>🛡️</span><span class="label-text">Conformité RGPD garantie</span></div>
+        <div class="nd-trust-item"><span>🤝</span><span class="label-text">Support inclus 30 jours</span></div>
+        <div class="nd-trust-item"><span>🌍</span><span class="label-text">Clients dans 8 pays</span></div>
       </div>
     `;
     contact.insertAdjacentElement('beforebegin', badges);
@@ -599,8 +599,8 @@
           <a href="#" class="nd-cookie-more">En savoir plus</a>
         </p>
         <div class="nd-cookie-btns">
-          <button class="nd-cookie-accept">Accepter</button>
-          <button class="nd-cookie-decline">Refuser</button>
+          <spanutton class="nd-cookie-accept label-text">Accepter</button>
+          <spanutton class="nd-cookie-decline label-text">Refuser</button>
         </div>
       </div>
     `;

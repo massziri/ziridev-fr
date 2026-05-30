@@ -74,7 +74,7 @@
 
   const html = `
     <style>${styles}</style>
-    <button id="nd-chat-bubble" aria-label="Discuter avec l'assistant Ziri Dev">
+    <spanutton id="nd-chat-bubble" aria-label="Discuter avec l'assistant Ziri Dev" class="label-text">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
@@ -87,23 +87,23 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
           </div>
           <div class="nd-hdr-text">
-            <strong>Assistant Ziri Dev</strong>
+            <span class="label-text">Assistant Ziri Dev</span>
             <span class="nd-status"><span class="nd-dot"></span> En ligne — répond en quelques secondes</span>
           </div>
         </div>
-        <button id="nd-close-btn" aria-label="Fermer le chat">✕</button>
+        <spanutton id="nd-close-btn" aria-label="Fermer le chat" class="label-text">✕</button>
       </div>
       <div id="nd-msgs" aria-live="polite" aria-label="Messages du chat"></div>
       <div class="nd-quick-btns" id="nd-quick-btns">
-        <button class="nd-qbtn" data-q="Quel est le prix d'un site web ?">💶 Tarifs</button>
-        <button class="nd-qbtn" data-q="Combien de temps ça prend ?">⏱ Délais</button>
-        <button class="nd-qbtn" data-q="J'ai besoin d'une boutique en ligne">🛒 E-commerce</button>
-        <button class="nd-qbtn" data-q="Comment vous travaillez ?">🔄 Processus</button>
+        <spanutton class="nd-qbtn label-text" data-q="Quel est le prix d'un site web ?">💶 Tarifs</button>
+        <spanutton class="nd-qbtn label-text" data-q="Combien de temps ça prend ?">⏱ Délais</button>
+        <spanutton class="nd-qbtn label-text" data-q="J'ai besoin d'une boutique en ligne">🛒 E-commerce</button>
+        <spanutton class="nd-qbtn label-text" data-q="Comment vous travaillez ?">🔄 Processus</button>
       </div>
       <div class="nd-wa-hint">Ou écrivez-nous directement : <a href="https://wa.me/${WA_NUMBER}" target="_blank" rel="noopener">WhatsApp +212 665 103 031</a></div>
       <div class="nd-input-row">
         <input type="text" id="nd-input" placeholder="Votre message…" autocomplete="off" aria-label="Zone de saisie du message" maxlength="500" />
-        <button id="nd-send" aria-label="Envoyer le message">
+        <spanutton id="nd-send" aria-label="Envoyer le message" class="label-text">
           <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </div>
