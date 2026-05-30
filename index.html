@@ -161,7 +161,7 @@
         "provider": { "@id": "https://ziridev-fr.vercel.app/#organization" },
         "offers": {
           "@type": "Offer",
-          "price": "200",
+          "price": "400",
           "priceCurrency": "EUR"
         }
       },
@@ -290,7 +290,7 @@
 
 <!-- Bannière d'annonce sticky -->
 <div id="sticky-banner">
-  <span>🚀 <strong>Audit de site gratuit</strong> — Places limitées ce mois-ci. <a href="#contactForm">Réservez la vôtre →</a></span>
+  <span>🚀 <strong>Audit de site gratuit</strong> — Places limitées ce mois-ci. <a href="#contact-anchor">Réservez la vôtre →</a></span>
   <button class="close-banner" aria-label="Fermer la bannière" onclick="this.parentElement.remove()">×</button>
 </div>
 
@@ -327,7 +327,7 @@
       <a href="contact">Contact</a>
     </nav>
     <div class="nav-actions">
-      <a class="btn btn-primary" href="#contactForm">Audit gratuit</a>
+      <a class="btn btn-primary" href="#contact-anchor">Audit gratuit</a>
       <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-toggle>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -344,7 +344,7 @@
         <h1>Nous créons des <span>sites web premium</span> pour les entreprises qui veulent paraître plus professionnelles et convertir davantage.</h1>
         <p>Ziri Dev conçoit et développe des expériences digitales soignées pour les entreprises qui prennent leur image au sérieux. Nous créons des sites qui combinent une présentation élégante, une structure stratégique et une exécution technique solide — pour que votre entreprise soit crédible, performante et génère de vraies opportunités commerciales.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contactForm">Obtenir un audit gratuit</a>
+          <a class="btn btn-primary" href="#contact-anchor">Obtenir un audit gratuit</a>
           <a class="btn btn-secondary" href="#services">Découvrir nos services</a>
         </div>
         <div class="hero-points">
@@ -506,7 +506,7 @@
             <li>Fondations SEO</li>
             <li>1 cycle de révisions</li>
           </ul>
-          <a class="btn btn-primary" href="#contactForm" style="display:block;text-align:center;">Démarrer →</a>
+          <a class="btn btn-primary" href="#contact-anchor" style="display:block;text-align:center;">Démarrer →</a>
         </article>
         <article class="card" style="border:2px solid #2d9e5e;position:relative;">
           <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#2d9e5e;color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px;">LE PLUS POPULAIRE</div>
@@ -522,7 +522,7 @@
             <li>Intégration chat</li>
             <li>3 cycles de révisions</li>
           </ul>
-          <a class="btn btn-primary" href="#contactForm" style="display:block;text-align:center;">Démarrer mon projet →</a>
+          <a class="btn btn-primary" href="#contact-anchor" style="display:block;text-align:center;">Démarrer mon projet →</a>
         </article>
         <article class="card" style="border:2px solid #e2e8f0;">
           <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -537,7 +537,7 @@
             <li>Support dédié</li>
             <li>Révisions illimitées</li>
           </ul>
-          <a class="btn btn-secondary" href="#contactForm" style="display:block;text-align:center;">Demander un devis →</a>
+          <a class="btn btn-secondary" href="#contact-anchor" style="display:block;text-align:center;">Demander un devis →</a>
         </article>
       </div>
     </div>
@@ -545,7 +545,7 @@
 
   <!-- BARRE D'URGENCE -->
   <div class="urgency-bar">
-    ⚠️ Disponibilité limitée — Seulement <strong>3 nouvelles places</strong> disponibles ce mois. <a href="#contactForm" style="color:#92400e;font-weight:700;">Réservez votre place →</a>
+    ⚠️ Disponibilité limitée — Seulement <strong>3 nouvelles places</strong> disponibles ce mois. <a href="#contact-anchor" style="color:#92400e;font-weight:700;">Réservez votre place →</a>
   </div>
 
   <!-- POUR QUI -->
@@ -610,7 +610,7 @@
         </div>
       </aside>
 
-      <div class="form-panel">
+      <div class="form-panel" id="contact-anchor">
         <h2>Démarrer votre demande de projet</h2>
         <p class="form-note">Partagez l'essentiel et nous étudierons votre demande avec toute l'attention stratégique qu'elle mérite.</p>
         <form id="contactForm" novalidate>
@@ -760,7 +760,7 @@
     <h2>Attendez ! Avant de partir…</h2>
     <p>Obtenez un <strong>audit personnalisé gratuit de votre site</strong> — nous analysons votre site et vous envoyons un rapport avec des améliorations spécifiques pour le design, la vitesse et la conversion.</p>
     <div class="exit-btns">
-      <a href="#contactForm" class="exit-yes" onclick="document.getElementById('exit-overlay').classList.remove('active')">Oui, je veux mon audit gratuit</a>
+      <a href="#contact-anchor" class="exit-yes" onclick="document.getElementById('exit-overlay').classList.remove('active')">Oui, je veux mon audit gratuit</a>
       <span class="exit-no" onclick="document.getElementById('exit-overlay').classList.remove('active')" role="button" tabindex="0">Non merci</span>
     </div>
   </div>

@@ -190,9 +190,9 @@
   /* ── Message d'accueil ── */
   function greet() {
     const greetings = [
-      "👋 Bonjour ! Je suis l'assistant Ziri Dev. Landing pages à partir de 300€, apps mobiles à partir de 400€. Quel projet avez-vous en tête ?",
-      "👋 Bonjour ! Ziri Dev — agence web & mobile premium. Landing pages 300€, e-commerce 400€, apps mobiles 400€. Comment puis-je vous aider ?",
-      "👋 Salut ! Bienvenue chez Ziri Dev. Sites web, e-commerce et apps mobiles à partir de 300€. Quel est votre projet ?"
+      "👋 Bonjour ! Je suis l'assistant Ziri Dev. Nos services démarrent à partir de 300€. Quel projet avez-vous en tête ?",
+      "👋 Bonjour ! Ziri Dev — agence web & mobile premium. Nos services démarrent à partir de 300€. Comment puis-je vous aider ?",
+      "👋 Salut ! Bienvenue chez Ziri Dev. Nos services démarrent à partir de 300€. Quel est votre projet ?"
     ];
     const msg = greetings[Math.floor(Math.random() * greetings.length)];
     addMessage(msg, 'bot');
