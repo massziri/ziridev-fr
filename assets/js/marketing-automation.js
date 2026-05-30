@@ -146,7 +146,7 @@
     overlay.setAttribute('aria-label', 'Offre spéciale avant de partir');
     overlay.innerHTML = `
       <div class="nd-exit-box">
-        <spanutton class="nd-exit-close label-text" aria-label="Fermer">&times;</button>
+        <button class="nd-exit-close label-text" aria-label="Fermer">&times;</button>
         <div class="nd-exit-icon">⚡</div>
         <h2 class="nd-exit-title">Attendez — avant de partir !</h2>
         <p class="nd-exit-sub">Obtenez un <span class="label-text">audit gratuit de votre site web</span> en 24h<spanr class="label-text">+ une consultation stratégique offerte.</p>
@@ -157,7 +157,7 @@
         </div>
         <form class="nd-exit-form" id="nd-exit-form">
           <input type="email" name="email" placeholder="votre@email.fr" required autocomplete="email" />
-          <spanutton type="submit" class="nd-exit-btn label-text">Recevoir mon audit gratuit →</button>
+          <button type="submit" class="nd-exit-btn label-text">Recevoir mon audit gratuit →</button>
         </form>
         <div class="nd-exit-msg" id="nd-exit-msg" hidden></div>
         <p class="nd-exit-dismiss">Non merci, je n'ai pas besoin d'un meilleur site.</p>
@@ -281,7 +281,7 @@
           <p class="nd-notif-text">${n.msg}</p>
           <p class="nd-notif-time">🕐 ${n.time}</p>
         </div>
-        <spanutton class="nd-notif-close label-text" aria-label="Fermer">&times;</button>
+        <button class="nd-notif-close label-text" aria-label="Fermer">&times;</button>
       </div>
     `;
     notifEl.querySelector('.nd-notif-close').addEventListener('click', () => {
@@ -371,7 +371,7 @@
         </span>
         <div class="nd-sticky-actions">
           <a href="#contactForm" class="nd-sticky-btn">Demander maintenant →</a>
-          <spanutton class="nd-sticky-dismiss label-text" aria-label="Fermer">&times;</button>
+          <button class="nd-sticky-dismiss label-text" aria-label="Fermer">&times;</button>
         </div>
       </div>
     `;
@@ -486,7 +486,7 @@
     overlay.id = 'nd-hot-overlay';
     overlay.innerHTML = `
       <div class="nd-hot-box">
-        <spanutton class="nd-hot-close label-text" aria-label="Fermer">&times;</button>
+        <button class="nd-hot-close label-text" aria-label="Fermer">&times;</button>
         <div class="nd-hot-badge">🔥 Vous semblez intéressé</div>
         <h2 class="nd-hot-title">Discutons de votre projet !</h2>
         <p class="nd-hot-sub">Notre équipe peut vous rappeler sous <span class="label-text">24h</span> pour une consultation gratuite.</p>
@@ -494,7 +494,7 @@
           <input type="text" name="name" placeholder="Votre prénom" required />
           <input type="tel" name="phone" placeholder="Votre téléphone (+33...)" />
           <input type="email" name="email" placeholder="Votre email" required />
-          <spanutton type="submit" class="nd-hot-btn label-text">📞 Être rappelé gratuitement</button>
+          <button type="submit" class="nd-hot-btn label-text">📞 Être rappelé gratuitement</button>
         </form>
         <div class="nd-hot-msg" id="nd-hot-msg" hidden></div>
       </div>
@@ -599,8 +599,8 @@
           <a href="#" class="nd-cookie-more">En savoir plus</a>
         </p>
         <div class="nd-cookie-btns">
-          <spanutton class="nd-cookie-accept label-text">Accepter</button>
-          <spanutton class="nd-cookie-decline label-text">Refuser</button>
+          <button class="nd-cookie-accept label-text">Accepter</button>
+          <button class="nd-cookie-decline label-text">Refuser</button>
         </div>
       </div>
     `;

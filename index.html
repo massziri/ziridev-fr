@@ -291,7 +291,7 @@
 <!-- Bannière d'annonce sticky -->
 <div id="sticky-banner">
   <span>🚀 <span class="label-text">Audit de site gratuit</span> — Places limitées ce mois-ci. <a href="#contact-anchor">Réservez la vôtre →</a></span>
-  <spanutton class="close-banner label-text" aria-label="Fermer la bannière" onclick="this.parentElement.remove()">×</button>
+  <button class="close-banner label-text" aria-label="Fermer la bannière" onclick="this.parentElement.remove()">×</button>
 </div>
 
 <!-- Ticker preuve sociale -->
@@ -328,7 +328,7 @@
     </nav>
     <div class="nav-actions">
       <a class="btn btn-primary" href="#contact-anchor">Audit gratuit</a>
-      <spanutton class="menu-toggle label-text" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-toggle>
+      <button class="menu-toggle label-text" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-toggle>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
@@ -575,7 +575,7 @@
     <div id="brevo-form-container">
       <form class="lead-form" id="auditLeadForm" onsubmit="submitLeadForm(event)">
         <input type="email" id="leadEmail" placeholder="Votre email professionnel…" required autocomplete="email" />
-        <spanutton type="submit" class="label-text">Envoyer mon audit gratuit →</button>
+        <button type="submit" class="label-text">Envoyer mon audit gratuit →</button>
       </form>
       <p class="lead-note">🔒 Pas de spam. Nous respectons votre vie privée. Désabonnement à tout moment. Conforme RGPD.</p>
     </div>
@@ -613,10 +613,11 @@
       <div class="form-panel" id="contact-anchor">
         <h2>Démarrer votre demande de projet</h2>
         <p class="form-note">Partagez l'essentiel et nous étudierons votre demande avec toute l'attention stratégique qu'elle mérite.</p>
-        <form id="contactForm" novalidate>
+        <form id="contactForm" action="https://formsubmit.co/admin@novatvhub.com" method="POST" accept-charset="UTF-8">
           <input type="hidden" name="_subject" value="Ziri Dev — Demande de projet (FR)" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://ziridev-fr.vercel.app/thank-you.html" />
           <div class="form-grid">
             <div class="field">
               <label for="fname">Prénom *</label>
@@ -671,7 +672,7 @@
               <textarea id="message" name="message" placeholder="Parlez-nous de vos objectifs, votre positionnement, votre délai et le type de résultat que vous souhaitez que votre site génère."></textarea>
             </div>
             <div class="field field-full">
-              <spanutton class="btn btn-primary label-text" type="submit">Réserver ma consultation</button>
+              <button class="btn btn-primary label-text" type="submit">Réserver ma consultation</button>
             </div>
           </div>
         </form>
@@ -755,7 +756,7 @@
 <!-- POPUP EXIT INTENT -->
 <div id="exit-overlay" role="dialog" aria-modal="true" aria-label="Offre spéciale">
   <div id="exit-box">
-    <spanutton id="exit-close" aria-label="Fermer" class="label-text">×</button>
+    <button id="exit-close" aria-label="Fermer" class="label-text">×</button>
     <div style="font-size:2.5rem;margin-bottom:8px;">🎁</div>
     <h2>Attendez ! Avant de partir…</h2>
     <p>Obtenez un <span class="label-text">audit personnalisé gratuit de votre site</span> — nous analysons votre site et vous envoyons un rapport avec des améliorations spécifiques pour le design, la vitesse et la conversion.</p>
@@ -773,12 +774,12 @@
 
 <!-- POPUP LEAD FORM (apparaît après 30s) -->
 <div id="lead-popup">
-  <spanutton class="lp-close label-text" aria-label="Fermer" onclick="document.getElementById('lead-popup').classList.remove('active')">×</button>
+  <button class="lp-close label-text" aria-label="Fermer" onclick="document.getElementById('lead-popup').classList.remove('active')">×</button>
   <h4>💡 Conseils web gratuits pour votre entreprise</h4>
   <p>Recevez notre guide gratuit : <em>« 5 erreurs qui coûtent des leads à votre site »</em></p>
   <form onsubmit="submitPopupForm(event)">
     <input type="email" id="popupEmail" placeholder="Votre adresse email" required />
-    <spanutton type="submit" class="lp-btn label-text">Envoyer le guide gratuit →</button>
+    <button type="submit" class="lp-btn label-text">Envoyer le guide gratuit →</button>
   </form>
 </div>
 
