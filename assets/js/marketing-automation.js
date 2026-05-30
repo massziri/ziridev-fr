@@ -370,7 +370,7 @@
           <strong>🎯 Audit web gratuit offert</strong> — Recevez un rapport complet de votre site en 24h
         </span>
         <div class="nd-sticky-actions">
-          <a href="#contact" class="nd-sticky-btn">Demander maintenant →</a>
+          <a href="#contactForm" class="nd-sticky-btn">Demander maintenant →</a>
           <button class="nd-sticky-dismiss" aria-label="Fermer">&times;</button>
         </div>
       </div>
@@ -680,7 +680,7 @@
               "name": "Quel est le prix d'un site web professionnel chez Ziri Dev ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Nos sites web professionnels démarrent à partir de 150€. Le tarif dépend de la complexité du projet : landing page, site business, e-commerce ou application mobile."
+                "text": "Nos sites web professionnels démarrent à partir de 300€. Le tarif dépend de la complexité du projet : landing page, site business, e-commerce ou application mobile."
               }
             },
             {
@@ -696,7 +696,7 @@
               "name": "Ziri Dev développe-t-elle des applications mobiles ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Oui, nous développons des applications iOS et Android haute performance à partir de 200€, avec une UX soignée et une exécution technique solide."
+                "text": "Oui, nous développons des applications iOS et Android haute performance à partir de 400€, avec une UX soignée et une exécution technique solide."
               }
             }
           ]

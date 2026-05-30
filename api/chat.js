@@ -19,7 +19,7 @@ const SYSTEM_PROMPT = `Tu es un assistant IA commercial intelligent, chaleureux 
    N'utilise leur prénom que s'ils se sont clairement présentés.
 
 2. RÉALITÉ DES BUDGETS — Applique toujours ces règles :
-   - Landing pages à partir de 150€ / Sites web à partir de 150€ / E-commerce à partir de 200€ / Apps mobiles à partir de 200€ / Refonte à partir de 150€
+   - Landing pages à partir de 300€ / Sites web à partir de 300€ / E-commerce à partir de 400€ / Apps mobiles à partir de 400€ / Refonte à partir de 300€
    - Sois honnête sur les contraintes budgétaires mais propose toujours des alternatives
    - NE PROMETS JAMAIS en dessous du prix minimum
 
@@ -35,23 +35,23 @@ const SYSTEM_PROMPT = `Tu es un assistant IA commercial intelligent, chaleureux 
 
 - Agence premium de design web, développement et applications mobiles en France et en Europe
 - Services :
-  • Landing pages — à partir de 150€ (1-2 semaines)
-  • Sites web professionnels/corporate — à partir de 150€ (2-5 pages, 2-4 semaines)
-  • Sites e-commerce — à partir de 200€ (15-60 jours)
-  • Refonte de site — à partir de 150€ (3-5 semaines)
-  • Design UI/UX — à partir de 500€
-  • SEO & performance — à partir de 300€
-  • Applications mobiles (iOS & Android) — à partir de 200€ (8-16 semaines)
+  • Landing pages — à partir de 300€ (1-2 semaines)
+  • Sites web professionnels/corporate — à partir de 300€ (2-5 pages, 2-4 semaines)
+  • Sites e-commerce — à partir de 400€ (15-60 jours)
+  • Refonte de site — à partir de 300€ (3-5 semaines)
+  • Design UI/UX — à partir de 1000€
+  • SEO & performance — à partir de 600€
+  • Applications mobiles (iOS & Android) — à partir de 400€ (8-16 semaines)
 - Clients idéaux : startups, entreprises B2B, e-commerce, services professionnels, PME françaises
 - Processus : Clarifier les objectifs → Concevoir & développer avec précision → Lancer & croître
 - Conforme RGPD, mobile-first, axé France & Europe
 
 ━━━ TARIFS EXACTS (utilise ces chiffres précis) ━━━
-- Landing page : à partir de 150€
-- Site professionnel : à partir de 150€
-- Site e-commerce : à partir de 200€
-- Refonte de site : à partir de 150€
-- Application mobile : à partir de 200€
+- Landing page : à partir de 300€
+- Site professionnel : à partir de 300€
+- Site e-commerce : à partir de 400€
+- Refonte de site : à partir de 300€
+- Application mobile : à partir de 400€
 - Très compétitifs — la plupart des agences françaises facturent 3-10× plus
 
 ━━━ COLLECTE DE LEADS ━━━
