@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://ziridev-fr.vercel.app/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://ziridev-fr.vercel.app/"/>
@@ -16,7 +16,7 @@
   <!-- About page -->
   <url>
     <loc>https://ziridev-fr.vercel.app/about</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://ziridev-fr.vercel.app/about"/>
@@ -25,7 +25,7 @@
   <!-- Contact page -->
   <url>
     <loc>https://ziridev-fr.vercel.app/contact</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://ziridev-fr.vercel.app/contact"/>
@@ -34,7 +34,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://ziridev-fr.vercel.app/privacy-policy</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -42,7 +42,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://ziridev-fr.vercel.app/terms</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -50,7 +50,7 @@
   <!-- Thank You page -->
   <url>
     <loc>https://ziridev-fr.vercel.app/thank-you</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.2</priority>
   </url>
