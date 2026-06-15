@@ -104,7 +104,7 @@
   <div class="contact-form-card">
     <h2>Demandez votre devis gratuit</h2>
     <p class="sub">Décrivez votre projet et recevez une réponse personnalisée sous 24h.</p>
-    <form id="zd-contact-form" action="https://formsubmit.co/ajax/admin@novatvhub.com" method="POST">
+    <form id="zd-contact-form" action="/api/submit" method="POST" novalidate>
       <input type="hidden" name="_subject" value="Nouveau contact — Ziri Dev FR" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
@@ -291,33 +291,77 @@
 
 <script>
 // Form submission
+// Robust contact form: posts to /api/submit (multi-provider + GH issue fallback) with retries
 document.getElementById('zd-contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
+  const form = this;
   const btn = document.getElementById('cf-submit');
   const msg = document.getElementById('cf-msg');
+  const originalText = btn.textContent;
+
   btn.disabled = true;
   btn.textContent = 'Envoi en cours…';
   msg.className = 'form-msg';
+  msg.textContent = '';
 
-  try {
-    const fd = new FormData(this);
-    const r = await fetch('https://formsubmit.co/ajax/admin@novatvhub.com', {
-      method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: fd
-    });
-    const d = await r.json().catch(() => ({}));
-    if (r.ok && (d.success === true || d.success === 'true')) {
-      msg.textContent = '✅ Votre demande a bien été envoyée ! Nous vous répondons sous 24h.';
-      msg.className = 'form-msg success';
-      this.reset();
-      btn.textContent = '✅ Message envoyé !';
-    } else throw new Error();
-  } catch (_) {
-    msg.textContent = '❌ Erreur lors de l\'envoi. Contactez-nous directement : admin@novatvhub.com';
+  // Convert FormData -> JSON, map to fields expected by /api/submit
+  const fd = new FormData(form);
+  const data = {};
+  fd.forEach((v, k) => { data[k] = v; });
+  // Honeypot check
+  if (data._honey) { btn.textContent = '✅ Envoyé'; form.reset(); return; }
+
+  // Map French field names to API field names
+  const fullName = String(data.Nom || '').trim();
+  const [fname, ...rest] = fullName.split(/\s+/);
+  const payload = {
+    fname: fname || fullName || 'Contact',
+    lname: rest.join(' ') || '-',
+    email: data.Email || '',
+    company: data.Entreprise || data.Source || 'Page Contact',
+    phone: data['Téléphone'] || '',
+    service: data.Service || '',
+    budget: data.Budget || '',
+    message: data.Message || '',
+    source: 'contact.html',
+    _subject: 'Nouveau contact — Ziri Dev FR',
+  };
+
+  async function postOnce() {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const r = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal,
+      });
+      const d = await r.json().catch(() => ({}));
+      return { ok: r.ok && d.success, status: r.status, data: d };
+    } finally { clearTimeout(t); }
+  }
+
+  let result = { ok: false };
+  for (let i = 0; i < 3; i++) {
+    try { result = await postOnce(); } catch (_) { result = { ok: false }; }
+    if (result.ok) break;
+    if (result.status && result.status >= 400 && result.status < 500 && result.status !== 408 && result.status !== 429) break;
+    await new Promise(r => setTimeout(r, 800 * (i + 1)));
+  }
+
+  if (result.ok) {
+    msg.textContent = '✅ Votre demande a bien été envoyée ! Nous vous répondons sous 24h.';
+    msg.className = 'form-msg success';
+    form.reset();
+    btn.textContent = '✅ Message envoyé !';
+  } else {
+    const fallbackMsg = (result.data && result.data.message)
+      || 'Le service est momentanément indisponible. Contactez-nous directement : admin@novatvhub.com';
+    msg.textContent = '❌ ' + fallbackMsg;
     msg.className = 'form-msg error';
     btn.disabled = false;
-    btn.textContent = '🚀 Envoyer ma demande gratuitement';
+    btn.textContent = originalText || '🚀 Envoyer ma demande gratuitement';
   }
 });
 

@@ -49,10 +49,7 @@
     }
   });
 
-  form?.addEventListener('submit', () => {
-    if (submit) {
-      submit.disabled = true;
-      submit.textContent = t.sending;
-    }
-  });
+  // Note: form submission is handled by the inline script in index.html
+  // which performs robust retry + multi-provider fallback via /api/submit.
+  // This main.js intentionally does NOT attach a submit handler to avoid conflicts.
 })();

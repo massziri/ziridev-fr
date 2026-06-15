@@ -613,11 +613,9 @@
       <div class="form-panel" id="contact-anchor">
         <h2>Démarrer votre demande de projet</h2>
         <p class="form-note">Partagez l'essentiel et nous étudierons votre demande avec toute l'attention stratégique qu'elle mérite.</p>
-        <form id="contactForm" action="https://formsubmit.co/admin@novatvhub.com" method="POST" accept-charset="UTF-8">
+        <form id="contactForm" action="/api/submit" method="POST" accept-charset="UTF-8" novalidate>
           <input type="hidden" name="_subject" value="Ziri Dev — Demande de projet (FR)" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://ziridev-fr.vercel.app/thank-you.html" />
+          <input type="text" name="website_url_bot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
           <div class="form-grid">
             <div class="field">
               <label for="fname">Prénom *</label>
@@ -841,10 +839,13 @@ setTimeout(() => {
 function submitLeadForm(e) {
   e.preventDefault();
   const email = document.getElementById('leadEmail').value;
-  fetch('https://formsubmit.co/ajax/admin@novatvhub.com', {
+  fetch('/api/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ email, _subject: 'Ziri Dev — Demande Audit Gratuit (FR)', _template: 'table' })
+    body: JSON.stringify({
+      fname: 'Lead', lname: 'Audit', email, company: 'Audit gratuit',
+      _subject: 'Ziri Dev — Demande Audit Gratuit (FR)'
+    })
   }).catch(() => {});
   document.getElementById('auditLeadForm').style.display = 'none';
   document.getElementById('leadSuccess').style.display = 'block';
@@ -854,10 +855,13 @@ function submitLeadForm(e) {
 function submitPopupForm(e) {
   e.preventDefault();
   const email = document.getElementById('popupEmail').value;
-  fetch('https://formsubmit.co/ajax/admin@novatvhub.com', {
+  fetch('/api/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ email, _subject: 'Ziri Dev — Téléchargement Guide (FR)', _template: 'table' })
+    body: JSON.stringify({
+      fname: 'Lead', lname: 'Guide', email, company: 'Téléchargement guide',
+      _subject: 'Ziri Dev — Téléchargement Guide (FR)'
+    })
   }).catch(() => {});
   document.getElementById('lead-popup').innerHTML = '<p style="padding:10px;text-align:center;font-weight:700;color:#166534;">✅ Guide envoyé ! Vérifiez votre boîte mail.</p>';
   setTimeout(() => document.getElementById('lead-popup').classList.remove('active'), 3000);
@@ -871,19 +875,92 @@ function submitPopupForm(e) {
   });
 })();
 
-// 8. Injecter les UTM dans le formulaire principal
+// 8. Injecter les UTM + soumission robuste du formulaire principal
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
-  if (form) {
-    ['utm_source','utm_medium','utm_campaign'].forEach(p => {
-      const val = sessionStorage.getItem(p);
-      if (val) {
-        const inp = document.createElement('input');
-        inp.type = 'hidden'; inp.name = p; inp.value = val;
-        form.appendChild(inp);
-      }
-    });
+  if (!form) return;
+
+  // UTM injection
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(p => {
+    const val = sessionStorage.getItem(p);
+    if (val && !form.querySelector(`input[name="${p}"]`)) {
+      const inp = document.createElement('input');
+      inp.type = 'hidden'; inp.name = p; inp.value = val;
+      form.appendChild(inp);
+    }
+  });
+
+  const successEl = document.getElementById('formSuccess');
+  const errorEl   = document.getElementById('formError');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+  function setBusy(busy) {
+    if (!submitBtn) return;
+    submitBtn.disabled = busy;
+    submitBtn.textContent = busy ? 'Envoi en cours…' : originalBtnText;
   }
+  function showSuccess(msg) {
+    if (successEl) { successEl.textContent = msg || successEl.textContent; successEl.style.display = 'block'; }
+    if (errorEl) errorEl.style.display = 'none';
+  }
+  function showError(msg) {
+    if (errorEl) { errorEl.textContent = msg || errorEl.textContent; errorEl.style.display = 'block'; }
+    if (successEl) successEl.style.display = 'none';
+  }
+
+  async function postWithRetry(url, payload, retries = 2) {
+    let lastErr;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      try {
+        const ctrl = new AbortController();
+        const timeout = setTimeout(() => ctrl.abort(), 15000);
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: ctrl.signal,
+        });
+        clearTimeout(timeout);
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) return { ok: true, data };
+        if (res.status >= 400 && res.status < 500 && res.status !== 408 && res.status !== 429) {
+          return { ok: false, data, status: res.status };
+        }
+        lastErr = new Error(`HTTP ${res.status}`);
+      } catch (e) {
+        lastErr = e;
+      }
+      if (attempt < retries) await new Promise(r => setTimeout(r, 800 * (attempt + 1)));
+    }
+    return { ok: false, error: lastErr };
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setBusy(true);
+    if (errorEl) errorEl.style.display = 'none';
+    if (successEl) successEl.style.display = 'none';
+
+    const fd = new FormData(form);
+    const payload = {};
+    fd.forEach((v, k) => { payload[k] = v; });
+
+    const result = await postWithRetry('/api/submit', payload, 2);
+
+    if (result.ok) {
+      showSuccess('✅ Votre demande a bien été envoyée. Nous vous répondons sous 24h.');
+      form.reset();
+      setBusy(false);
+      if (submitBtn) submitBtn.textContent = '✅ Demande envoyée';
+      setTimeout(() => { window.location.href = '/thank-you'; }, 1200);
+    } else {
+      const msg = (result.data && result.data.message)
+        || 'Le service est momentanément indisponible. Merci d’écrire directement à admin@novatvhub.com.';
+      showError(msg);
+      setBusy(false);
+    }
+  });
 });
 </script>
 </body>
